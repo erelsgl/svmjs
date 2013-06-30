@@ -1,4 +1,5 @@
-// simple demonstration of SVM
+// demonstration of SVM that explains its decisions.
+
 
 var svmjs = require('./');
 
@@ -21,5 +22,8 @@ var traindata = [
 var labels = [-1, -1, 1, 1];
 var svm = new svmjs.SVM();
 svm.trainBatch(traindata, {C: 1.0}); // C is a parameter to SVM
+console.dir(svm.explain([0,2]));  // -1
+console.dir(svm.explain([0,2]));  // -1
 console.dir(svm.classify([0,2]));  // -1
+console.dir(svm.explain([1,3]));  // 1
 console.dir(svm.classify([1,3]));  // 1
